@@ -1,8 +1,8 @@
 package com.adu.web;
 
 import java.util.Date;
-import javax.servlet.http.ServletHttpRequest;
-import org.springframework.beans.annotation.Autowired;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -33,7 +33,7 @@ public class LoginController{
       user.setLastVisit(new Date());
       userService.loginSuccess(user);
       request.getSession().setAttribute("user", user);
-      return new ModelAndView("main");
+      return new ModelAndView("main","user", user);
     }
   }
 }
