@@ -1,0 +1,23 @@
+<ivysettings>
+    <settings defaultResolver="spring-chain" />
+    <resolvers>
+        <chain name="spring-chain">
+            <url name="com.springsource.repository.bundles.release">
+                <ivy pattern="http://maven.oschina.net/content/groups/public/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
+                <artifact pattern="http://maven.oschina.net/content/groups/public/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
+            </url>
+            <url name="com.springsource.repository.bundles.external">
+                <ivy pattern="http://maven.oschina.net/content/groups/public/org/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
+                <artifact pattern="http://maven.oschina.net/content/groups/public/org/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
+            </url>
+	    <url name="com.springsource.repository.bundles.external">
+                <ivy pattern="http://maven.oschina.net/content/repositories/public/javax/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
+                <artifact pattern="http://maven.oschina.net/content/repositories/public/javax/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
+            </url> 
+	    <url name="com.springsource.repository.bundles.external">
+                <ivy pattern="http://maven.oschina.net/content/repositories/public/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
+                <artifact pattern="http://maven.oschina.net/content/repositories/public/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
+            </url> 
+        </chain>
+    </resolvers>
+</ivysettings>

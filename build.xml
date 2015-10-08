@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF8"  ?>
+<project default="package" name="my-app" basedir="." xmlns:ivy ="antlib:org.apache.ivy.ant" >
+  <ivy:settings file="ivy.settings.xml" /> 
+  <property name="ivy.local.default.root" location="/home/dxt/.ivy/local" />
+  <property name="JAVA_SRC" value="src/main/java"/>
+  <path id="CLASSPATH">
+    <fileset dir="lib">
+        <include name="*.jar" />
+    </fileset>
+   </path> 
+  <target name="package" depends="compile">
+    <jar>
+    </jar>
+  </target>
+
+  <target name="compile">
+    <javac srcdir="${JAVA_SRC}" includeantruntime="false">
+      <classpath refid="CLASSPATH"/>
+    </javac>
+  </target>
+  <target name="get-lib">
+    <ivy:retrieve/>
+  </target>
+</project>
+

@@ -1,0 +1,25 @@
+<ivy-module  version="2.0" > 
+     <info  organisation="apache"  module="hello-ivy" /> 
+     <dependencies> 
+         <dependency org="junit" name="junit"  rev ="4.11" /> 
+         <dependency org="springframework" name="org.springframework.asm"  rev ="3.1.1.RELEASE" /> 
+         <dependency org="cglib" name="cglib"  rev ="2.1" /> 
+         <dependency org="springframework" name="org.springframework.core"  rev ="3.1.1.RELEASE" /> 
+         <dependency org="commons-dbcp" name="commons-dbcp"  rev ="1.0" /> 
+         <dependency org="springframework" name="org.springframework.jdbc"  rev ="3.1.1.RELEASE" /> 
+         <dependency org="springframework" name="spring-webmvc"  rev ="3.1.1.RELEASE" /> 
+         <dependency org="springframework" name="spring-web"  rev ="3.1.1.RELEASE" /> 
+         <dependency org="springframework" name="org.springframework.expression"  rev ="3.1.1.RELEASE" /> 
+         <dependency org="springframework" name="org.springframework.context"  rev ="3.1.1.RELEASE" /> 
+         <dependency org="springframework" name="org.springframework.aop"  rev ="3.1.1.RELEASE" /> 
+         <dependency org="springframework" name="org.springframework.beans"  rev ="3.1.1.RELEASE" /> 
+         <dependency org="springframework" name="org.springframework.test"  rev ="3.1.1.RELEASE" /> 
+         <dependency org="springframework" name="org.springframework.transaction"  rev ="3.1.1.RELEASE" /> 
+         <dependency org="aspectjweaver" name="aspectjweaver"  rev ="1.6.8" /> 
+         <!-- dependency org="jdbc" name="jdbc-stdext"  rev ="2.0" /--> 
+         <dependency org="mysql" name="mysql-connector-java"  rev ="5.1.32" /> 
+         <dependency org="servlet" name="jstl"  rev ="1.2" /> 
+         <dependency org="taglibs" name="standard"  rev ="1.1.2" /> 
+         <dependency org="servlet" name="javax.servlet-api"  rev ="3.0.1" /> 
+     </dependencies> 
+</ivy-module>
