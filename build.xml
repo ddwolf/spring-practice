@@ -12,9 +12,9 @@
    </path> 
   <target name="init">
     <mkdir dir="build"/>
-    <mkdir dir="build/my-app"/>
-    <mkdir dir="build/my-app/classes"/>
-    <mkdir dir="build/my-app/WEB-INF"/>
+    <mkdir dir="${buildbase}"/>
+    <mkdir dir="${buildbase}/classes"/>
+    <mkdir dir="${buildbase}/WEB-INF"/>
     <mkdir dir="lib"/>
   </target>
   <target name="package" depends="compile">
