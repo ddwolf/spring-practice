@@ -25,7 +25,7 @@ public class UserService {
     return userDao.findUserByUserName(userName);
   }
 
-  public void loginSuccess(User user){
+  public void loginSuccess(User user) throws Exception{
     user.setCredits(5+user.getCredits());
     LoginLog loginLog = new LoginLog();
     loginLog.setUserId(user.getUserId());

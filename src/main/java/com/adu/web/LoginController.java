@@ -22,7 +22,7 @@ public class LoginController{
 
   @RequestMapping(value="/loginCheck.html")
   public ModelAndView loginCheck(HttpServletRequest request, 
-    LoginCommand loginCommand){
+    LoginCommand loginCommand) throws Exception{
     boolean isValidUser = userService.hasMatchUser(loginCommand.getUserName(),
       loginCommand.getPassword());
     if(!isValidUser){
