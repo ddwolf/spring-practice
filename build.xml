@@ -3,6 +3,7 @@
   <ivy:settings file="ivy.settings.xml" /> 
   <property name="ivy.local.default.root" location="/home/dxt/.ivy/local" />
   <property name="JAVA_SRC" value="src/main/java"/>
+  <property name="buildbase" value="build/my-app/"/>
   <taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask"/>
   <path id="CLASSPATH">
     <fileset dir="lib">
