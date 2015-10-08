@@ -3,23 +3,64 @@
   <ivy:settings file="ivy.settings.xml" /> 
   <property name="ivy.local.default.root" location="/home/dxt/.ivy/local" />
   <property name="JAVA_SRC" value="src/main/java"/>
+  <taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask"/>
   <path id="CLASSPATH">
     <fileset dir="lib">
         <include name="*.jar" />
     </fileset>
    </path> 
+  <target name="init">
+    <mkdir dir="build"/>
+    <mkdir dir="build/my-app"/>
+    <mkdir dir="build/my-app/classes"/>
+    <mkdir dir="build/my-app/WEB-INF"/>
+    <mkdir dir="lib"/>
+  </target>
   <target name="package" depends="compile">
-    <jar>
-    </jar>
+    <copy todir="build/my-app/classes">
+      <fileset dir="src/main/java/" includes="*.xml"/>
+    </copy>
+    <copy todir="build/my-app/">
+      <fileset dir="src/main/webapp/" includes="**/*.jsp"/>
+    </copy>
+    <copy todir="build/my-app/classes">
+       <fileset dir="lib" includes="*.jar"/>
+    </copy>
+    <copy todir="build/my-app/WEB-INF">
+      <fileset dir="src/main/webapp/WEB-INF/" includes="web.xml"/>
+    </copy>
+    <war destfile="build/my-app.war" webxml="src/main/webapp/WEB-INF/web.xml">
+      <fileset dir="build/my-app"/>
+    </war>
   </target>
 
-  <target name="compile">
-    <javac srcdir="${JAVA_SRC}" includeantruntime="false">
+  <target name="compile" depends="get-lib">
+    <javac srcdir="${JAVA_SRC}" includeantruntime="false" destdir="build/my-app/classes">
       <classpath refid="CLASSPATH"/>
     </javac>
   </target>
-  <target name="get-lib">
+  <target name="get-lib" depends="init">
     <ivy:retrieve/>
   </target>
+  <target name="deploy" depends="package">
+    <deploy url="http://localhost:8080/manager" username="admin" password="password" path="/var/www" war="build/my-app.war"></deploy>
+  </target>
+  <target name="clean">
+    <delete dir="build"/>
+  </target>
+  <target name="junit" depends="compile">
+    <junit printsummary="true" showoutput="true">
+      <classpath refid="CLASSPATH"/>
+      <batchtest todir="rpt">
+        <fileset dir="src/test/java">
+	</fileset>
+      </batchtest>
+    </junit>
+   <junitreport todir="rpt"> 
+    <fileset dir="rpt"> 
+    </fileset> 
+    <report format="frames" todir="rpt" /> 
+   </junitreport> 
+  </target> 
 </project>
 
